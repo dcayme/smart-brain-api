@@ -26,7 +26,7 @@ const handleRegister= (req,res, db, bcrypt) => {
 			.then( data =>{
 				res.json(data[0])
 			})
-			.catch(err=> res.status(400).json(err))	
+			.catch(err=> res.status(400).json('unable to register'))	
 		)
 		.then(trx.commit)
 		.catch(trx.rollback)
