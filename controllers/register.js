@@ -1,12 +1,11 @@
 
 const handleRegister= (req,res, db, bcrypt) => {
-
-	db.transaction((trx) => {
-		const {email, name, password} = req.body;
-		if(!email || !name || !password) {
-			return res.status(400).json('incorrect form submission');
-		}
-		
+	const {email, name, password} = req.body;
+	if(!email || !name || !password) {
+		return res.status(400).json('incorrect form submission');
+	}
+	
+	db.transaction((trx) => {	
 		trx.insert({
 			'email': req.body.email,
 			'hash': bcrypt.hashSync(req.body.password)
@@ -14,7 +13,6 @@ const handleRegister= (req,res, db, bcrypt) => {
 		.into('login')
 		.returning('email')
 		.then(
-
 			trx.insert({
 				'email': req.body.email,
 				'name': req.body.name,
