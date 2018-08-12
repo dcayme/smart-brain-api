@@ -19,8 +19,6 @@ var db=knex({
   }
 });
 
-Access-Control-Allow-Origin: *
-
 var app = express();
 app.use(cors());
 app.use(bodyParser.json());
