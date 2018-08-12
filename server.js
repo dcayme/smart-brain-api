@@ -33,7 +33,7 @@ app.get('/profile/:id', (req,res)=> {profile.handleProfileGet(req,res,db)})
 app.put('/image',(req,res) =>{image.handleImage(req,res, db)})
 app.post('/imageUrl',(req,res) =>{image.handleApiCall(req,res)})
 
-app.listen(process.env.PORT || 4000, console.log('listening on port ${process.env.PORT}'))
+app.listen(process.env.PORT || 4000, console.log(`listening on port ${process.env.PORT}`))
 
 //Register
 //SignUp
